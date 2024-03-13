@@ -7,7 +7,7 @@
 <p><sup>1</sup>Hangzhou Dianzi University &nbsp;&nbsp;<sup>2</sup>Institute of Computing Technology, Chinese Academy of Sciences
 <br><sup>*</sup>Equal contribution &nbsp;&nbsp;<sup>&dagger;</sup>Corresponding author<p>
 
-### [Projectpage](https://shunyuanzheng.github.io/GPS-Gaussian) · [Paper](https://arxiv.org/pdf/2312.02155.pdf) · [Video](https://youtu.be/TBIekcqt0j0)
+### [Projectpage](https://shunyuanzheng.github.io/GPS-Gaussian) · [Paper](https://arxiv.org/abs/2305.10061) · [Video](https://youtu.be/TBIekcqt0j0)
 
 </div>
 
