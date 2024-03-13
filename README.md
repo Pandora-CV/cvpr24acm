@@ -2,10 +2,10 @@
 
 # <b>Rethinking Boundary Discontinuity Problem for Oriented Object Detection
 
-[Shunyuan Zheng](https://github.com/HangXu-CV/HangXu-CV.github.io)<sup>1&dagger;</sup>, [Boyao Zhou](https://yaourtb.github.io)<sup>2</sup>, [Ruizhi Shao](https://dsaurus.github.io/saurus)<sup>2</sup>, [Boning Liu](https://liuboning2.github.io)<sup>2</sup>, [Shengping Zhang](http://homepage.hit.edu.cn/zhangshengping)<sup>1*</sup>, [Liqiang Nie](https://liqiangnie.github.io)<sup>1</sup>, [Yebin Liu](https://www.liuyebin.com)<sup>2</sup>
+[Hang Xu](https://hangxu-cv.github.io/)<sup>1*&dagger;</sup>, [Xinyuan Liu](https://scholar.google.com/citations?user=eXwizz8AAAAJ&hl=zh-CN)<sup>2*</sup>, [Haonan Xu](https://scholar.google.com/citations?user=Up_a2VAAAAAJ&hl=zh-CN)<sup>2</sup>, [Yike Ma](http://www.ict.cas.cn/sourcedb_ict_cas/cn/jssrck/201511/t20151119_4470413.html)<sup>2</sup>, [Zunjie Zhu](http://iipl.net.cn/index/team_details/id/129.aspx)<sup>1</sup>, [Chenggang Yan](https://auto.hdu.edu.cn/2019/0621/c3803a96028/page.htm)<sup>1</sup>, [Feng Dai](http://www.ict.cas.cn/sourcedb_ict_cas/cn/jssrck/201404/t20140422_4096774.html)<sup>2†</sup>
 
-<p><sup>1</sup>Harbin Institute of Technology &nbsp;&nbsp;<sup>2</sup>Tsinghua Univserity
-<br><sup>*</sup>Corresponding author &nbsp;&nbsp;<sup>&dagger;</sup>Work done during an internship at Tsinghua Univserity<p>
+<p><sup>1</sup>Hangzhou Dianzi University &nbsp;&nbsp;<sup>2</sup>Institute of Computing Technology, Chinese Academy of Sciences
+<br><sup>*</sup>Equal contribution &nbsp;†nbsp;<sup>&dagger;</sup>Corresponding author<p>
 
 ### [Projectpage](https://shunyuanzheng.github.io/GPS-Gaussian) · [Paper](https://arxiv.org/pdf/2312.02155.pdf) · [Video](https://youtu.be/TBIekcqt0j0)
 
