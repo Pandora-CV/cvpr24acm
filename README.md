@@ -2,4 +2,4 @@
 This is our official pytorch implementation of ACM.
 
 ## :fire: News
-- This paper is accepted by CVPR 2024.
+- **[2/27/2024]** This paper is accepted by CVPR 2024.
