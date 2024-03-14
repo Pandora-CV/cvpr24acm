@@ -169,9 +169,10 @@ The visualization file appears in the current path as demo.jpg.
 
 If you find this code useful for your research, please consider citing:
 ```
-@article{zheng2023gpsgaussian,
-  title={GPS-Gaussian: Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis},
-  author={Zheng, Shunyuan and Zhou, Boyao and Shao, Ruizhi and Liu, Boning and Zhang, Shengping and Nie, Liqiang and Liu, Yebin},
-  journal={arXiv},
-  year={2023}
+@inproceedings{xucvpr24acm,
+author = {Xu, Hang and Liu, Xinyuan and Xu, Haonan and Ma, Yike and Zhu, Zunjie and Yan, Chenggang and Dai, Feng},
+title = {Rethinking Boundary Discontinuity Problem for Oriented Object Detection},
+booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+year = {2024},
+}
 ```
