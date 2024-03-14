@@ -15,7 +15,11 @@
 - **[2/27/2024]** This paper is accepted by CVPR 2024.
 
 ## Introduction
-We propose GPS-Gaussian, a generalizable pixel-wise 3D Gaussian representation for synthesizing novel views of any unseen characters instantly without any fine-tuning or optimization.
+Oriented object detection has been developed rapidly in the past few years, where rotation equivariance is crucial for detectors to predict rotated boxes. It is expected that the prediction can maintain the corresponding rotation when objects rotate, but severe mutation in angular prediction is sometimes observed when objects rotate near the boundary angle, which is well-known boundary discontinuity problem. 
+The problem has been long believed to be caused by the sharp loss increase at the angular boundary, and widely used joint-optim IoU-like methods deal with this problem by loss-smoothing. However, we experimentally find that even state-of-the-art IoU-like methods actually fail to solve the problem. 
+On further analysis, we find that the key to solution lies in encoding mode of the smoothing function rather than in joint or independent optimization. In existing IoU-like methods, the model essentially attempts to fit the angular relationship between box and object, where the break point at angular boundary makes the predictions highly unstable.
+To deal with this issue, we propose a dual-optimization paradigm for angles. We decouple reversibility and joint-optim from single smoothing function into two distinct entities, which for the first time achieves the objectives of both correcting angular boundary and blending angle with other parameters.
+Extensive experiments on multiple datasets show that boundary discontinuity problem is well-addressed. Moreover, typical IoU-like methods are improved to the same level without obvious performance gap.
 
 ## Installation
 ### Requirements
@@ -150,6 +154,20 @@ python evaluate.py --operation HRSC_test \
 python evaluate.py --operation HRSC_MS_test \
     --model 50 --weight_path ${WEIGHT_PATH} 
 ```
+
+### Visualize
+For example, using pretrained ResNet50 model:
+```
+python evaluate.py --operation visualize \
+    --model 50 --weight_path ./checkpoint/r50-scale=[0.5.1.0].pth \
+    --img_path ./result/P0007.png
+```
+
+Optional arguments:
+* --score_thr :object confidence during detection. score greater than the confidence is considered to be a detected object.
+
+The visualization file appears in the current path as demo.jpg.
+
 ## Citation
 
 If you find this code useful for your research, please consider citing:
