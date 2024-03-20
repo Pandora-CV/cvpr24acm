@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 python train_dota.py \
+                              --datadir /shared/datasets/DOTA/split_ss_dota/trainval \
+	                          --heads 1 \
+	                          --model 50 \
+					          --coder acm \
+              		          --coder_cfg 1 \
+              		          --coder_mode model \
+             		          --box_loss riou \
+                              --input_size 1024 \
+                              --batch_size 24 \
+                              --dist-url tcp://127.0.0.1:2543

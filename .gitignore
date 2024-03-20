@@ -1,0 +1,4 @@
+checkpoint/
+result/test*/
+**/__pycache__
+DOTA_devkit/build/

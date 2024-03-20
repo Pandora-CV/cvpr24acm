@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=2 python evaluate.py --operation HRSC_test \
+					--heads 1 \
+	                --model 50 \
+					--coder acm \
+              		--coder_cfg -1 \
+              		--coder_mode model \
+             		--box_loss riou \
+			 		--weight_path checkpoint/riou_acm_-1_model_140.pth \
+					--hrsc_test_size 640 \
+	                --use_07_metric \
+					--ap_thres 0.50

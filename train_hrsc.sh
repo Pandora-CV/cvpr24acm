@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=4,5,6,7 python train_hrsc.py \
+              --datadir /data/shared/datasets/HRSC2016/train \
+	          --heads 1 \
+	          --model 50 \
+			  --coder acm \
+              --coder_cfg 1 \
+              --coder_mode model \
+              --box_loss riou \
+              --input_size 640 \
+              --batch_size 16 \
+              --dist-url tcp://127.0.0.1:2543

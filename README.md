@@ -2,7 +2,7 @@
 
 # <b>Rethinking Boundary Discontinuity Problem for Oriented Object Detection
 
-[Hang Xu](https://hangxu-cv.github.io/)<sup>1*</sup>, [Xinyuan Liu](https://antxinyuan.github.io/)<sup>2*</sup>, [Haonan Xu](https://scholar.google.com/citations?user=Up_a2VAAAAAJ&hl=zh-CN)<sup>2</sup>, [Yike Ma](http://www.ict.cas.cn/sourcedb_ict_cas/cn/jssrck/201511/t20151119_4470413.html)<sup>2</sup>, [Zunjie Zhu](http://iipl.net.cn/index/team_details/id/129.aspx)<sup>1</sup>, [Chenggang Yan](https://cgyan-iipl.github.io/)<sup>1</sup>, [Feng Dai](http://www.ict.cas.cn/sourcedb_ict_cas/cn/jssrck/201404/t20140422_4096774.html)<sup>2†</sup>
+[Hang Xu](https://hangxu-cv.github.io/)<sup>1*</sup>, [Xinyuan Liu](https://scholar.google.com/citations?user=eXwizz8AAAAJ&hl=zh-CN)<sup>2*</sup>, [Haonan Xu](https://scholar.google.com/citations?user=Up_a2VAAAAAJ&hl=zh-CN)<sup>2</sup>, [Yike Ma](http://www.ict.cas.cn/sourcedb_ict_cas/cn/jssrck/201511/t20151119_4470413.html)<sup>2</sup>, [Zunjie Zhu](http://iipl.net.cn/index/team_details/id/129.aspx)<sup>1</sup>, [Chenggang Yan](https://cgyan-iipl.github.io/)<sup>1</sup>, [Feng Dai](http://www.ict.cas.cn/sourcedb_ict_cas/cn/jssrck/201404/t20140422_4096774.html)<sup>2†</sup>
 
 <p><sup>1</sup>Hangzhou Dianzi University &nbsp;&nbsp;<sup>2</sup>Institute of Computing Technology, Chinese Academy of Sciences
 <br><sup>*</sup>Equal contribution &nbsp;&nbsp;<sup>&dagger;</sup>Corresponding author<p>
@@ -16,9 +16,11 @@
 
 ## Introduction
 Oriented object detection has been developed rapidly in the past few years, where rotation equivariance is crucial for detectors to predict rotated boxes. It is expected that the prediction can maintain the corresponding rotation when objects rotate, but severe mutation in angular prediction is sometimes observed when objects rotate near the boundary angle, which is well-known boundary discontinuity problem. The problem has been long believed to be caused by the sharp loss increase at the angular boundary, and widely used joint-optim IoU-like methods deal with this problem by loss-smoothing. However, we experimentally find that even state-of-the-art IoU-like methods actually fail to solve the problem. On further analysis, we find that the key to solution lies in encoding mode of the smoothing function rather than in joint or independent optimization. In existing IoU-like methods, the model essentially attempts to fit the angular relationship between box and object, where the break point at angular boundary makes the predictions highly unstable.To deal with this issue, we propose a dual-optimization paradigm for angles. We decouple reversibility and joint-optim from single smoothing function into two distinct entities, which for the first time achieves the objectives of both correcting angular boundary and blending angle with other parameters.Extensive experiments on multiple datasets show that boundary discontinuity problem is well-addressed. Moreover, typical IoU-like methods are improved to the same level without obvious performance gap.
-![3fa81caaa53cef2aa1b642ecbe32f81](https://github.com/HangXu-CV/cvpr24acm/blob/main/rotation_invarience.png)
+![3fa81caaa53cef2aa1b642ecbe32f81](rotation_invarience.png)
 
 ## Installation
+> This repository is developed based on TGRS22 paper GF-CSL 's [offical code](https://github.com/WangJian981002/GF-CSL), which contains a CenterNet detector with minimalism style. By the way, some loss functions and modules are modified based on [mmdet](https://github.com/open-mmlab/mmdet) and [mmrotate](https://github.com/open-mmlab/mmrotate).
+
 ### Requirements
 * Linux
 * Python 3.7+
@@ -164,6 +166,30 @@ Optional arguments:
 * --score_thr :object confidence during detection. score greater than the confidence is considered to be a detected object.
 
 The visualization file appears in the current path as demo.jpg.
+
+### More details
+To configure the model more finely in training/testing/visualizing, you can add some extra configuration items, e.g.
+```
+CUDA_VISIBLE_DEVICES=0,1 python train_dota.py \
+	        --heads 15 \
+	        --model 50 \
+			--coder acm \
+            --coder_cfg 1 \
+            --coder_mode model \
+            --box_loss riou
+```
+- heads: the number of classification headers, corresponding to the number of data set categories.
+- model: the version of ResNet backbone, e.g. 18 / 34 / 50 / 101 / 152
+- coder: the type of angle coder, e.g. none / acm / psc / csl
+- coder_cfg: the config of angle coder,
+
+        for acm, coder_cfg >= 0 indicates that dual_freq=True.
+
+        for psc, coder_cfg indicates the umber of phase steps.
+
+        for csl, coder_cfg indicates the umber of encoding length.
+- coder_mode: coder mode, e.g. model / loss, where model indicates model outputs encoding while loss indicates model ouputs anlge itself.
+- box_loss: loss for box, e.g. none / kld / gwd / kfiou / riou.
 
 ## Citation
 
