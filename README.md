@@ -34,7 +34,7 @@ Oriented object detection has been developed rapidly in the past few years, wher
 1. Create a conda virtual environment and activate it
 
 ```
-conda create -n GF python=3.7 -y
+conda create -n cvpr24acm python=3.7 -y
 conda activate cvpr24acm
 ```
 
