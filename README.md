@@ -196,10 +196,11 @@ CUDA_VISIBLE_DEVICES=0,1 python train_dota.py \
 
 If you find this code useful for your research, please consider citing:
 ```
-@inproceedings{xucvpr24acm,
-author = {Xu, Hang and Liu, Xinyuan and Xu, Haonan and Ma, Yike and Zhu, Zunjie and Yan, Chenggang and Dai, Feng},
-title = {Rethinking Boundary Discontinuity Problem for Oriented Object Detection},
-booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-year = {2024},
+@inproceedings{xu2024acm,
+  title={Rethinking boundary discontinuity problem for oriented object detection},
+  author={Xu, Hang and Liu, Xinyuan and Xu, Haonan and Ma, Yike and Zhu, Zunjie and Yan, Chenggang and Dai, Feng},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={17406--17415},
+  year={2024}
 }
 ```
