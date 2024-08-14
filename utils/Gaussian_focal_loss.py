@@ -224,6 +224,9 @@ def rotated_iou_loss(pred, target, linear=False, mode='linear', eps=1e-6):
             'instead.')
 
 
+    x_y = target.new_zeros((len(pred), 2))
+    pred = torch.cat([x_y, pred], dim=1)
+    target = torch.cat([x_y, target], dim=1)
     ious = diff_iou_rotated_2d(pred.unsqueeze(0), target.unsqueeze(0))
     ious = ious.squeeze(0).clamp(min=eps)
 
